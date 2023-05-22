@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wine Quality Prediction</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .text {
+            margin-right: 20px;
+            /* Add any other styles for the text here */
+        }
+
+        body {
+            background-color: rgb(182, 214, 255);
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text">
+            <h1>Wine Quality Prediction</h1>
+
+            <h2>Model Inputs</h2>
+
+            <form action="{{ url_for('predict')}}" method="POST">
+                Alcohol: <input type="number" step="any" name="alcohol"><br>
+                Density: <input type="number" step="any" name="density"><br>
+                Volatile Acidity: <input type="number" step="any"  name="volatile_acidity"><br>
+                <input type=submit value=Submit>
+            </form>
+
+            <h2>Prediction</h2>
+
+            Quality: {{ predict }}
+
+            <p> ** 0 = Poor and 1 = Good </p>
+
+            <h3>Notes</h3>
+            <h4>Alcohol Values Between 8 and 14.9</h4>
+            <h4>Density Values Between .987 and 1.04</h4>
+            <h4>Volatile Acidity Between .08 and 1.58</h4>
+        </div>
+
+        <div class="image">
+            <img src="/static/wine.jpeg" alt="Wineglass">
+        </div>
+    </div>
+</body>
+</html>
+
